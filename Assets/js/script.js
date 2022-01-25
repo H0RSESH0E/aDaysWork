@@ -2,7 +2,9 @@ console.log("I'm here");
 var today = moment().format('LL');
 console.log(today);
 var dayBegin = 9;
-
+var classesInNOut;
+var savedToggle;
+var lastContent;
 
 let dt = moment();
 dt. format("HH:mm") // 24 hour time.
@@ -34,13 +36,7 @@ var fillSlot = function(slotTime, slotText) {
 
 var styleOnTime = function (slotTime) {
 
-    
     var timeToCheck = moment(slotTime, "hA");
-
-    console.log(timeToCheck, " TIME TO CHECK");
-
-    console.log(moment().isBefore(timeToCheck), " 123123123");
-    
     
     if (moment().isSame(timeToCheck, "h")) {
         return "present";
@@ -94,10 +90,15 @@ var saveListItem = function (index) {
 
 $("ul").on("click", "p", function() {
 
+        // change the style of the button to highlight color
+    $(this).siblings(".saveBtn").addClass("not-saved");
+    classesInNOut = $(this).attr('class');
     var text = $(this)
       .text()
       .trim();
   
+    lastContent = text;
+
     var textInput = $("<textarea>").addClass("textarea col-10").val(text);
     $(this).replaceWith(textInput);
   
@@ -110,29 +111,38 @@ $("ul").on("click", "button", function() {
     var index = $(this)
       .closest("li")
       .index();
-      console.log(index," KAY")
+      console.log(index," KAY");
 
     saveListItem(index);
+    $(this).removeClass("not-saved")
 });
 
 $("ul").on("blur", "textarea", function() {
-    // get current value of textarea
+
     var text = $(this).val();
   
-    // get status type and position in the list
+    if (text === lastContent) {
+        
+        $(this).siblings(".saveBtn").removeClass("not-saved")
+    }   // if didn't change take highlight off save button
+
+
+
     var index = $(this)
       .closest("li")
       .index();
   
-    // update task in array 
     activities[index][1] = text;
   
     var activity = $("<p>")
-        .addClass("col-10 description")
+        .addClass(classesInNOut)
         .text(text);
-  
-    // replace textarea with new content
+        
+    styleOnTime($(activity).closest(".hour"));
     $(this).replaceWith(activity);
+
+    
+    
 });
 
 
