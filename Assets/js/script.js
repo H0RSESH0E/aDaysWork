@@ -54,6 +54,64 @@ var loadDailyActivityList = function() {
 
 }
 
+var saveListItem = function (index) {
+    console.log(index," here we goooooooO!");
+    console.log(activities);
+    var tempArr = JSON.parse(localStorage.getItem("activities"));
+    console.log(tempArr);
+    tempArr.splice(index,1,activities[index]);
+    console.log(activities);
+
+    localStorage.setItem("activities", JSON.stringify(tempArr));
+    
+}
+
+$("ul").on("click", "p", function() {
+
+    var text = $(this)
+      .text()
+      .trim();
+  
+    var textInput = $("<textarea>").addClass("textarea col-10").val(text);
+    $(this).replaceWith(textInput);
+  
+    textInput.trigger("focus");
+    console.log($(this));
+});
+
+$("ul").on("click", "button", function() {
+
+    var index = $(this)
+      .closest("li")
+      .index();
+      console.log(index," KAY")
+
+    saveListItem(index);
+});
+
+$("ul").on("blur", "textarea", function() {
+    // get current value of textarea
+    var text = $(this).val();
+  
+    // get status type and position in the list
+    var index = $(this)
+      .closest("li")
+      .index();
+  
+    // update task in array 
+    activities[index][1] = text;
+  
+    var activity = $("<p>")
+        .addClass("col-10 description")
+        .text(text);
+  
+    // replace textarea with new content
+    $(this).replaceWith(activity);
+});
+
+
+
+
 loadDailyActivityList();
 
 console.log(activities);
