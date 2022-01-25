@@ -10,6 +10,8 @@ dt. format("hh:mm a") // 12 hour time (with am/pm)
 var activities = [];
 
 var fillSlot = function(slotTime, slotText) {
+    
+    var timeStyle = styleOnTime(slotTime);
 
     var slotLi = $("<li>")
         .addClass("time-block calendar-item");
@@ -17,15 +19,39 @@ var fillSlot = function(slotTime, slotText) {
         .addClass("col-1 hour")
         .text(slotTime);
     var activity = $("<p>")
-        .addClass("col-10 description")
+        .addClass("col-10 description" + " " + timeStyle)
         .text(slotText);
     var btn = $("<button>")
         .addClass("col-1 bi bi-save2 saveBtn")
-           
+
+    
+
     slotLi.append(slot, activity, btn);
 
     $("#dailyActivityList")
         .append(slotLi);
+}
+
+var styleOnTime = function (slotTime) {
+
+    
+    var timeToCheck = moment(slotTime, "hA");
+
+    console.log(timeToCheck, " TIME TO CHECK");
+
+    console.log(moment().isBefore(timeToCheck), " 123123123");
+    
+    
+    if (moment().isSame(timeToCheck, "h")) {
+        return "present";
+    }
+    else if (moment().isAfter(timeToCheck, "h")) {
+        return "past";
+    }
+    else {
+        return "future";
+    }
+
 }
 
 var loadDailyActivityList = function() {
@@ -110,7 +136,7 @@ $("ul").on("blur", "textarea", function() {
 });
 
 
-
+$("#currentDay").append(" " + today);
 
 loadDailyActivityList();
 
