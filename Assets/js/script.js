@@ -1,14 +1,7 @@
-console.log("I'm here");
 var today = moment().format('LL');
-console.log(today);
 var dayBegin = 9;
 var classesInNOut;
-var savedToggle;
 var lastContent;
-
-let dt = moment();
-dt. format("HH:mm") // 24 hour time.
-dt. format("hh:mm a") // 12 hour time (with am/pm)
 var activities = [];
 
 var fillSlot = function(slotTime, slotText) {
@@ -16,7 +9,7 @@ var fillSlot = function(slotTime, slotText) {
     var timeStyle = styleOnTime(slotTime);
 
     var slotLi = $("<li>")
-        .addClass("time-block calendar-item");
+        .addClass("row");
     var slot = $("<span>")
         .addClass("col-1 hour")
         .text(slotTime);
