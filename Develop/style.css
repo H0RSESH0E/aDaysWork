@@ -1,17 +1,22 @@
+* {
+  background-color: rgba(220, 20, 60, 0.062);
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  margin: 1vh 1vw;
+  
+}
+.container {
+  min-height: 100vh;
+}
+#gut {
+  height: 100vh;
 }
 
-ul li textarea{
-  background: transparent;
-  border: none;
-  color: #000000;
-  border-left: 1px solid black;
-  padding: 10px;
-  height: 80px;
-}
+
 
 .jumbotron {
   text-align: center;
@@ -21,14 +26,43 @@ ul li textarea{
   border-bottom: 10px solid black;
 }
 
+.jumbotron .display-3 {
+  display: flex;
+  justify-content: center;
+  font-size: calc(100% + 3vh + 3vw);
+}
+
 p {
   margin: unset;
+}
 
+header p {
+  line-height: 1;
+}
+
+textarea{
+  background: transparent;
+  border: none;
+  color: #000000;
+  border-left: 1px solid black;
+  padding: 0.5%;
+  height: 80px;
+}
+
+ul {
+  margin: 12px 0;
+  position: relative;
+  left: -21px;
 }
 
 ul p .description {
+
  text-align: center;
   padding: 0.5% !important;
+}
+
+#currentDay {
+  font-size: 170%;
 }
 
 .description{
@@ -41,7 +75,7 @@ ul p .description {
   border-radius: 15px;
 }
 
-.row p {
+.row p:not(.lead) {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
@@ -54,7 +88,9 @@ p.col-10.description {
 
 
 li {
-  display: flex;
+  display: inline-flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
 }
 
 .hour {
@@ -89,15 +125,17 @@ li {
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  opacity: .4;
+  margin: none;
 }
 
 .not-saved {
- opacity: .3;
+ opacity: 1;
   
 }
 
-.saveBtn:hover {
-  font-size: 175%;
+.saveBtn:hover.not-saved {
+  font-size: 125%;
   transition: all .2s ease-in-out;
   color: #000000;
 }

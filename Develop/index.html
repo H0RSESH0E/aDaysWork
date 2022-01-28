@@ -15,23 +15,29 @@
 </head>
 
 <body>
-  <header class="jumbotron">
+  <div class="container">
+    <div id="gut" class="row largest-row">
+      <div class="col-12 col-lg-4">
+  <header class="jumbotron m-auto">
     <h1 class="display-3">Work Day Scheduler</h1>
     <p class="lead">A simple calendar app for scheduling your work day</p>
+    <br>
     <p id="currentDay" class="lead"></p>
   </header>
-
-  <div id="main-container" class="container">
+</div>
+<div class="col-0 col-lg-1"></div>
+<div class="col-12 col-lg-7 ">
 
     <ul id="dailyActivityList">
       <!-- This <li> and below will be dynamically created -->
     </ul>
 
-  </div>
-
+</div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../assets/js/script.js"></script>
+</div>
+</div>
 </body>
 
 </html>
