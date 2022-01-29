@@ -14,7 +14,7 @@ The following is a short description of my experience completing the project:
 - I got a good deal of satisfaction from meeting the acceptance criteria while including my own upgrade of styling to the buttons to provide clear feedback to the users.
 - Using Bootstrap and Moment.js allowed me to quickly add a responsive styling and functionality.
 
-![Screenshot](./assets/images/screenshot.png)
+![Screenshot](./Assets/images/screenshot.png)
 
 ## Installation
 To set up the website:
@@ -39,7 +39,7 @@ This scheduler features temporary and long term storage of task items up-to-the-
 
 &nbsp;
 
-![test](./assets/images/toroid.png)
+![test](./Assets/images/toroid.png)
 
 
 **H0RSESH0E**
