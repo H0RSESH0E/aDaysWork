@@ -29,7 +29,6 @@ var loadDailyActivityList = function() {
         for (var i =0; i < hoursInTheDay; i++) {
 
             timeString = " " + (i + dayBegin) +":00"
-            console.log(timeString);
             timeSlot = moment(today + timeString).format("hA");
            
             tempArr = [timeSlot,""];
