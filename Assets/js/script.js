@@ -1,9 +1,9 @@
 // Gets the current day for main display
 var today = moment().format('LL');
 // allows customization of the start of the work day
-var dayBegin = 9;
+var dayBegin = 6;
 // allows customization of the length of the work day
-var hoursInTheDay = 8;
+var hoursInTheDay = 16;
 // provides for persistence of class information durring element replacements
 var classesInNOut;
 // provides comparison for judgement of the need to save
